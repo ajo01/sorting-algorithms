@@ -22,13 +22,11 @@ function SortingVisualizer(props) {
   }, []);
 
   return (
-    <>
+    <div className={styles.arrayContainer}>
       {array.map((val, id) => (
-        <div className={styles.arrayBars} key={id}>
-          {val}
-        </div>
+        <div key={id}>{val}</div>
       ))}
-    </>
+    </div>
   );
 }
 

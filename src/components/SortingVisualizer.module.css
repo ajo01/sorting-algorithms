@@ -1,11 +1,18 @@
 .arrayBar {
-  width: 4px;
-  background-color: aqua;
+  width: 2px;
+  background-color: #3498db;
   margin: 5px 2px;
   display: inline-block;
 }
 
 .arrayContainer {
-  position: absolute;
-  left: 100px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.newArrBtn {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

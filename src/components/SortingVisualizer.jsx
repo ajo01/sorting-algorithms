@@ -11,7 +11,7 @@ function SortingVisualizer(props) {
   //set random array of 100 numbers
   const resetArray = () => {
     const arr = [];
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 200; i++) {
       arr.push(randomIntFromIntervals(10, 900));
     }
     setArray(arr);
@@ -22,15 +22,25 @@ function SortingVisualizer(props) {
   }, []);
 
   return (
-    <div className={styles.arrayContainer}>
-      {array.map((val, id) => (
-        <div
-          className={styles.arrayBar}
-          key={id}
-          style={{ height: `${val}px` }}
-        ></div>
-      ))}
-    </div>
+    <>
+      <div className={styles.arrayContainer}>
+        {array.map((val, id) => (
+          <div
+            className={styles.arrayBar}
+            key={id}
+            style={{ height: `${val}px` }}
+          ></div>
+        ))}
+      </div>
+      <button
+        className={styles.newArrBtn}
+        onClick={() => {
+          resetArray();
+        }}
+      >
+        Generate New Array
+      </button>
+    </>
   );
 }
 

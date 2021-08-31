@@ -21,6 +21,14 @@ function SortingVisualizer(props) {
     resetArray();
   }, []);
 
+  const mergeSort = () => {};
+
+  const quickSort = () => {};
+
+  const heapSort = () => {};
+
+  const bubbleSort = () => {};
+
   return (
     <>
       <div className={styles.arrayContainer}>
@@ -39,6 +47,38 @@ function SortingVisualizer(props) {
         }}
       >
         Generate New Array
+      </button>
+      <button
+        className={styles.newArrBtn}
+        onClick={() => {
+          mergeSort();
+        }}
+      >
+        Merge Sort
+      </button>
+      <button
+        className={styles.newArrBtn}
+        onClick={() => {
+          quickSort();
+        }}
+      >
+        Quick Sort
+      </button>
+      <button
+        className={styles.newArrBtn}
+        onClick={() => {
+          heapSort();
+        }}
+      >
+        Heap Sort
+      </button>
+      <button
+        className={styles.newArrBtn}
+        onClick={() => {
+          bubbleSort();
+        }}
+      >
+        Bubble Sort
       </button>
     </>
   );

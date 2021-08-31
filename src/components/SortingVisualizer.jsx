@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import styles from "./SortingVisualizer.module.css";
 
-function SortingVisualiser(props) {
+function SortingVisualizer(props) {
   const [array, setArray] = useState([]);
+
+  function randomIntFromIntervals(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
 
   //set random array
   const resetArray = () => {
@@ -20,10 +24,12 @@ function SortingVisualiser(props) {
   return (
     <>
       {array.map((val, id) => (
-        <div className={styles.arrayBars}></div>
+        <div className={styles.arrayBars} key={id}>
+          {val}
+        </div>
       ))}
     </>
   );
 }
 
-export default SortingVisualiser;
+export default SortingVisualizer;

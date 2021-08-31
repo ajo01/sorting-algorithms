@@ -8,11 +8,11 @@ function SortingVisualizer(props) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  //set random array
+  //set random array of 100 numbers
   const resetArray = () => {
     const arr = [];
     for (let i = 0; i < 100; i++) {
-      arr.push(randomIntFromIntervals(10, 1000));
+      arr.push(randomIntFromIntervals(10, 900));
     }
     setArray(arr);
   };
@@ -24,7 +24,11 @@ function SortingVisualizer(props) {
   return (
     <div className={styles.arrayContainer}>
       {array.map((val, id) => (
-        <div key={id}>{val}</div>
+        <div
+          className={styles.arrayBar}
+          key={id}
+          style={{ height: `${val}px` }}
+        ></div>
       ))}
     </div>
   );

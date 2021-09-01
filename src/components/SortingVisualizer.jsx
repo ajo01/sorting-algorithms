@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./SortingVisualizer.module.css";
+import { mergeSort } from "./SortingAlgorithms";
 
 function SortingVisualizer(props) {
   const [array, setArray] = useState([]);
@@ -21,13 +22,18 @@ function SortingVisualizer(props) {
     resetArray();
   }, []);
 
-  const mergeSort = () => {};
+  const mergeSortViz = () => {
+    const javascriptSortedArray = array.slice().sort();
+    const sortedArray = mergeSort(array);
+    console.log(javascriptSortedArray);
+    console.log(sortedArray);
+  };
 
-  const quickSort = () => {};
+  const quickSortViz = () => {};
 
-  const heapSort = () => {};
+  const heapSortViz = () => {};
 
-  const bubbleSort = () => {};
+  const bubbleSortViz = () => {};
 
   return (
     <>
@@ -51,7 +57,7 @@ function SortingVisualizer(props) {
       <button
         className={styles.newArrBtn}
         onClick={() => {
-          mergeSort();
+          mergeSortViz();
         }}
       >
         Merge Sort
@@ -59,7 +65,7 @@ function SortingVisualizer(props) {
       <button
         className={styles.newArrBtn}
         onClick={() => {
-          quickSort();
+          quickSortViz();
         }}
       >
         Quick Sort
@@ -67,7 +73,7 @@ function SortingVisualizer(props) {
       <button
         className={styles.newArrBtn}
         onClick={() => {
-          heapSort();
+          heapSortViz();
         }}
       >
         Heap Sort
@@ -75,7 +81,7 @@ function SortingVisualizer(props) {
       <button
         className={styles.newArrBtn}
         onClick={() => {
-          bubbleSort();
+          bubbleSortViz();
         }}
       >
         Bubble Sort

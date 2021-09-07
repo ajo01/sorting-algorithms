@@ -1,5 +1,5 @@
 export const mergeSort = (arr) => {
-  if (arr.length === 0) return arr;
+  if (arr.length === 1) return arr;
   const midIdx = Math.floor(arr.length / 2);
   const firstHalf = mergeSort(arr.slice(0, midIdx));
   const secondHalf = mergeSort(arr.slice(midIdx));

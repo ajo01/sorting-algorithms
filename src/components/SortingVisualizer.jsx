@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./SortingVisualizer.module.css";
-import { mergeSort } from "./SortingAlgorithms";
+import * as SortingAlgorithms from "./SortingAlgorithms.js";
 
 function SortingVisualizer(props) {
   const [array, setArray] = useState([]);
@@ -9,13 +9,14 @@ function SortingVisualizer(props) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  //set random array of 100 numbers
+  //set random array of 200 numbers
   const resetArray = () => {
     const arr = [];
     for (let i = 0; i < 200; i++) {
       arr.push(randomIntFromIntervals(10, 900));
     }
     setArray(arr);
+    // console.log(arr);
   };
 
   useEffect(() => {
@@ -23,10 +24,13 @@ function SortingVisualizer(props) {
   }, []);
 
   const mergeSortViz = () => {
-    const javascriptSortedArray = array.slice().sort();
-    const sortedArray = mergeSort(array);
+    const javascriptSortedArray = array.slice().sort((a, b) => a - b);
+
     console.log(javascriptSortedArray);
+
+    const sortedArray = SortingAlgorithms.mergeSort(array);
     console.log(sortedArray);
+    // console.log(arraysAreEqual(javascriptSortedArray, sortedArray));
   };
 
   const quickSortViz = () => {};
@@ -34,6 +38,14 @@ function SortingVisualizer(props) {
   const heapSortViz = () => {};
 
   const bubbleSortViz = () => {};
+
+  function arraysAreEqual(arrayOne, arrayTwo) {
+    if (arrayOne.length !== arrayTwo.length) return false;
+    for (let i = 0; i < arrayOne.length; i++) {
+      if (arrayOne[i] !== arrayTwo[i]) return false;
+    }
+    return true;
+  }
 
   return (
     <>
